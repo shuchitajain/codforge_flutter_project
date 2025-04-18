@@ -16,7 +16,6 @@ class AppStrings {
   static const profileComingSoon = 'Profile screen coming soon!';
 
   //Categories
-  static const categories = 'Categories';
   static const fertilizers = 'Fertilizers';
   static const seeds = 'Seeds';
   static const irrigationTools = 'Irrigation tools';

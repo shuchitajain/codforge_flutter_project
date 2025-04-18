@@ -80,7 +80,7 @@ class _CategoryScreenState extends ConsumerState<CategoryScreen> {
     return Scaffold(
       backgroundColor: AppColors.grey100,
       appBar: CommonAppbar(
-        title: AppStrings.categories,
+        title: AppStrings.category,
         actions: [
           Stack(
             children: [

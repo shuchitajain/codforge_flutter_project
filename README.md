@@ -12,7 +12,6 @@ A simplified Category screen implementation with pagination, Riverpod state mana
 - ✅ Full state handling: loading, error, no data, success
 - ✅ Clean UI with GridView layout
 - ✅ Feature-first folder structure
-- ✅ Lazy loading with pagination (10 per page)  
 - ✅ Pull-to-refresh  
 - ✅ Responsive UI with custom illustrations and design polish  
 - ✅ SOLID-compliant architecture with clean code and reusability  
@@ -75,8 +74,8 @@ A simplified Category screen implementation with pagination, Riverpod state mana
     Currently manual testing is performed via:
 
     * Scroll to bottom for pagination
-    * Turn off WiFi to trigger offline error state
-    * Delete mock data response to trigger "No Data"
+    * Turn off WiFi and restart the app (because data is cached for that session) to trigger offline error state
+    * Delete mock data response to trigger "No Data" (refer TODO)
     * Pull down to test refresh indicator
 
 ---
