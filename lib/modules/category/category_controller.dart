@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import '../../core/constants/strings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/models/category_model.dart';
@@ -34,6 +35,11 @@ class CategoryState {
       page: page ?? this.page,
     );
   }
+
+  @override
+  String toString() {
+    return 'CategoryState(isLoading: $isLoading, error: $error, hasMore: $hasMore, categories: $categories, page: $page)';
+  }
 }
 
 // This controller manages the state of the categories
@@ -68,9 +74,14 @@ class CategoryController extends StateNotifier<CategoryState> {
 
     state = state.copyWith(isLoading: true, error: null);
 
+    debugPrint('State while loading more: ${state.toString()}');
+
     try {
+      debugPrint('Loading more categories...');
       final result = await repository.fetchCategories(page: state.page);
       final newList = [...state.categories, ...result];
+      await Future.delayed(const Duration(seconds: 2));
+      debugPrint('Loaded more categories: ${result.length}');
       state = state.copyWith(
         isLoading: false,
         categories: newList,

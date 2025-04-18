@@ -42,10 +42,20 @@ class _CategoryScreenState extends ConsumerState<CategoryScreen> {
         });
       }
 
+      debugPrint(
+        "Pixels: ${_scrollController.position.pixels}, Max: ${_scrollController.position.maxScrollExtent - 200}",
+      );
+
+      // Load more categories when scrolled to the bottom
+      // and if there are more categories to load
+      // and if there is no ongoing loading
+      // and if the user is not already at the bottom
       if (_scrollController.position.pixels >=
-              _scrollController.position.maxScrollExtent - 300 &&
+              _scrollController.position.maxScrollExtent - 200 &&
+          !_isAtBottom &&
           !state.isLoading &&
           state.hasMore) {
+        _isAtBottom = true; // avoid duplicate calls
         notifier.loadMoreCategories().then((_) {
           final updated = ref.read(categoryControllerProvider);
           if (mounted &&
@@ -56,6 +66,9 @@ class _CategoryScreenState extends ConsumerState<CategoryScreen> {
             ).showSnackBar(SnackBar(content: Text(updated.error!)));
           }
         });
+      } else if (_scrollController.position.pixels <
+          _scrollController.position.maxScrollExtent - 200) {
+        _isAtBottom = false; // allow re-trigger
       }
     });
   }
@@ -146,18 +159,19 @@ class _CategoryScreenState extends ConsumerState<CategoryScreen> {
                         },
                       ),
                     ),
-                    if (state.isLoading)
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 16),
-                        child: AppLoader(),
-                      )
-                    else if (!_isAtBottom)
-                      const SizedBox.shrink()
-                    else if (!state.hasMore)
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 16),
-                        child: Text(AppStrings.endOfCategories),
-                      ),
+                    if (_isAtBottom) ...[
+                      if (state.isLoading && state.hasMore)
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          child: AppLoader(),
+                        )
+                      else if (!state.isLoading && !state.hasMore)
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          child: Text(AppStrings.endOfCategories),
+                        ),
+                    ] else
+                      const SizedBox.shrink(),
                   ],
                 ),
               ),

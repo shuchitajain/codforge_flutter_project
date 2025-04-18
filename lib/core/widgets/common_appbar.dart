@@ -37,7 +37,10 @@ class _CommonAppbarState extends State<CommonAppbar> {
           IconButton(
             icon: CircleAvatar(
               backgroundColor: AppColors.white,
-              child: const Icon(Icons.arrow_back_ios_new, size: 20),
+              child: const Icon(Icons.arrow_back_ios_new, 
+              color: AppColors.green,
+              size: 20,
+              ),
             ),
             onPressed: () {
               if (Navigator.of(context).canPop()) {

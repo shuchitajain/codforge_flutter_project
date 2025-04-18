@@ -36,7 +36,10 @@ class ApiCategoryRepository implements ICategoryRepository {
 
       if (response.statusCode == 200) {
         final List decoded = json.decode(response.body);
-        return decoded.map((e) => CategoryModel.fromMap(e)).toList();
+        return Future.delayed(
+          const Duration(seconds: 2),
+          () => decoded.map((e) => CategoryModel.fromMap(e)).toList(),
+        );
       }
 
       switch (response.statusCode) {
