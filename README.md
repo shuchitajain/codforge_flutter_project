@@ -32,7 +32,7 @@ A simplified Category screen implementation with pagination, Riverpod state mana
 
 ## 📂 Folder structure
 
-lib/
+<pre>lib/
 ├── core/                 
 │   ├── constants/
 │   └── widgets/
@@ -50,7 +50,7 @@ lib/
 ├── router/
 │   └── navigation_bar.dart
 ├── app.dart
-└── main.dart
+└── main.dart</pre>
 
 ---
 
@@ -58,7 +58,7 @@ lib/
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/yourusername/codforge_flutter_project.git
+   git clone https://github.com/shuchitajain/codforge_flutter_project.git
    cd codforge_flutter_project
 
 2. **Install flutter dependencies**
