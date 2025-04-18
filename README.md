@@ -88,22 +88,38 @@ lib/
 
 ---
 
-## 👨‍💻 Author
-    Made with ❤️ for CodForge by SJ
-
 ## 📷 Screenshots
 
-### 🏠 Home Screen
-<img src="screenshots/home_screen.png" width="300" />
+<table>
+  <tr>
+    <td align="center">
+      🏠 <br/> <strong>Home Screen</strong><br/>
+      <img src="screenshots/home_screen.png" width="200"/>
+    </td>
+    <td align="center">
+      🔄 <br/> <strong>Category Screen</strong><br/>
+      <img src="screenshots/category_screen.png" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      🛒 <br/> <strong>Cart Screen</strong><br/>
+      <img src="screenshots/cart_screen.png" width="200"/>
+    </td>
+    <td align="center">
+      📦 <br/> <strong>Order History Screen</strong><br/>
+      <img src="screenshots/order_history_screen.png" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      👤 <br/> <strong>Profile Screen</strong><br/>
+      <img src="screenshots/profile_screen.png" width="200"/>
+    </td>
+  </tr>
+</table>
 
-### 🔄 Category Screen
-<img src="screenshots/category_screen.png" width="300" />
+---
 
-### ❌ Cart Screen
-<img src="screenshots/cart_screen.png" width="300" />
-
-### 📭 Order History Screen
-<img src="screenshots/order_history_screen.png" width="300" />
-
-### 📭 Profile Screen
-<img src="screenshots/profile_screen.png" width="300" />
+## 👨‍💻 Author
+    Made with ❤️ for CodForge by SJ
